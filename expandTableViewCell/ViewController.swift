@@ -10,9 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     
     private var data = [
-        DataModel(headerName: "Men", subTypes: ["Pants", "T-shirts", "Jeans"], isExpandable: false),
-        DataModel(headerName: "Women", subTypes: ["Pants", "T-shirts", "Jeans", "CropTop"], isExpandable: false),
-        DataModel(headerName: "Kids", subTypes: ["Pants", "T-shirts", "Jeans"], isExpandable: false),
+        DataModel(number: 1, headerName: "筋トレ", subTypes: ["Pants", "T-shirts", "Jeans"], isExpandable: false),
+        DataModel(number: 2, headerName: "瞑想", subTypes: ["Pants", "T-shirts", "Jeans", "CropTop"], isExpandable: false),
+        DataModel(number: 3, headerName: "読書", subTypes: ["Pants", "T-shirts", "Jeans"], isExpandable: false),
     ]
     
     private let tableView: UITableView = {
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         
         view.backgroundColor = .darkGray
         
-        tableView.frame = CGRect(x: 0, y: 50 , width: view.frame.size.width, height: view.frame.size.height)
+        tableView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
     }
 
 
@@ -60,7 +60,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         headerView.delegate = self
         headerView.secIndex = section
-        headerView.button.setTitle(data[section].headerName, for: .normal)
+        
+        guard let number = data[section].number, let headerName = data[section].headerName else {
+            return nil
+        }
+        
+        headerView.button.setTitle("\(number): \(headerName)", for: .normal)
+        
         
         return headerView
     }

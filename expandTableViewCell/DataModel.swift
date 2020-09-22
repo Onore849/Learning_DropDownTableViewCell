@@ -9,11 +9,13 @@ import Foundation
 
 class DataModel {
     
+    var number: Int?
     var headerName: String?
     var subTypes: [String]?
     var isExpandable: Bool = false
     
-    init(headerName: String, subTypes: [String] , isExpandable: Bool) {
+    init(number: Int, headerName: String, subTypes: [String] , isExpandable: Bool) {
+        self.number = number
         self.headerName = headerName
         self.subTypes = subTypes
         self.isExpandable = isExpandable

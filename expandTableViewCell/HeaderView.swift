@@ -19,7 +19,7 @@ class HeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.addSubview(button )
+        self.addSubview(button)
     }
     
     required init?(coder: NSCoder) {
@@ -36,9 +36,9 @@ class HeaderView: UIView {
             height: self.frame.height
         )
         
-        button.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
-        button.titleLabel?.textColor = UIColor.white
-        button.layer.cornerRadius = 10
+//        button.titleLabel?.textColor = .black
+        button.backgroundColor = .systemGray
+        button.layer.cornerRadius = 5
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(onClickHeaderView), for: .touchUpInside)
         
