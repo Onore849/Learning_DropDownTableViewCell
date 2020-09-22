@@ -37,6 +37,8 @@ class HeaderView: UIView {
         )
         
 //        button.titleLabel?.textColor = .black
+        button.contentHorizontalAlignment = .left
+        
         button.backgroundColor = .systemGray
         button.layer.cornerRadius = 5
         button.clipsToBounds = true
